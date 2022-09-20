@@ -20,3 +20,9 @@ BackEnd/data/private_key/*
 
 FrontEnd/.eslintcache
 BackEnd/.env
+
+data/orthanc/*
+data/orthancpacs/*
+data/orthanctoolsjs/*
+data/postgres/*
+data/ris/*

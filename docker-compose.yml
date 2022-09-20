@@ -15,7 +15,7 @@ services:
         image: my-orthanctoolsjs
         container_name: orthanctoolsjs
         restart: unless-stopped
-        volumes: ["orthanctoolsjs:/OrthancToolsJs/data:Z"]
+        volumes: ["./data/orthanctoolsjs:/OrthancToolsJs/data:Z"]
         environment:
             TZ: "Asia/Ho_Chi_Minh"
             ORTHANC_ADDRESS: "http://orthanc"
@@ -58,7 +58,7 @@ services:
             POSTGRES_DB : "orthanctoolsjs"
             POSTGRES_HOST_AUTH_METHOD: "trust"
         volumes:
-            - postgres:/var/lib/postgresql/data
+            - ./data/postgres:/var/lib/postgresql/data
         restart: unless-stopped
 
     orthanc:
@@ -66,7 +66,7 @@ services:
         container_name: orthanc
         restart: unless-stopped
         ports: ["8042:8042"]
-        volumes: ["orthanc:/var/lib/orthanc/db:Z"]
+        volumes: ["./data/orthanc:/var/lib/orthanc:Z"]
         networks:
           - internal
         environment:
@@ -95,7 +95,7 @@ services:
         ports: ["4245:4842"]
         container_name: orthanctoolsjspacs
         restart: unless-stopped
-        volumes: ["orthancpacs:/var/lib/orthanc/db:Z"]
+        volumes: ["./data/orthancpacs:/var/lib/orthanc:Z"]
         networks:
           - internal
         environment:
@@ -113,7 +113,7 @@ services:
         container_name: ris
         restart: unless-stopped
         ports: ["5000:5000"]
-        volumes: ["ris:/RIS/static/:Z"]
+        volumes: ["./data/ris:/RIS/static/:Z"]
         networks:
           - internal
           - web
@@ -122,7 +122,7 @@ services:
             SECRET_KEY: '123456'
             DB_URI: 'postgresql://postgres:postgres@postgres:5432/orthanctoolsjs'
             MAIL_USERNAME: "nguyenminhhieu.it1.k52@gmail.com"
-            MAIL_PASSWORD: "lnnugyvxmwkkjfbj"
+            MAIL_PASSWORD: "yxicljxtkzxrxbvv"
             ADMIN_USERNAME: "itsme"
             ADMIN_EMAIL: "itsme@A.com"
             ADMIN_PWD: "123456"
@@ -133,9 +133,9 @@ services:
 
 
 
-volumes:
-        orthanc:
-        orthancpacs:
-        orthanctoolsjs:
-        postgres:
-        ris:
+# volumes:
+#         orthanc:
+#         orthancpacs:
+#         orthanctoolsjs:
+#         postgres:
+#         ris:
