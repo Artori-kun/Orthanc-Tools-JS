@@ -6,6 +6,12 @@ RUN npm install
 RUN npm run build
 
 FROM node:14.15.4 as ohif
+RUN true > /etc/apt/sources.list
+RUN echo "deb http://archive.debian.org/debian stretch main" >> /etc/apt/sources.list 
+RUN echo "deb-src http://archive.debian.org/debian stretch main" >> /etc/apt/sources.list 
+RUN echo "deb http://archive.debian.org/debian stretch-backports main" >> /etc/apt/sources.list 
+RUN echo  "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list 
+RUN echo  "deb-src http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list
 RUN apt-get update -qy && \
     apt-get install -y --no-install-recommends apt-utils\
     git

@@ -1,7 +1,7 @@
 FROM python:3.8
 
 RUN apt update -qy && \
-    apt install -y --no-install-recommends git git-lfs
+    apt install -y --no-install-recommends git git-lfs libgl1
 
 WORKDIR /ris
 

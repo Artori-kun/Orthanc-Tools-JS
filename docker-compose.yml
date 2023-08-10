@@ -30,7 +30,7 @@ services:
             DB_USERNAME: "postgres"
             DB_PASSWORD: "postgres"
             DB_HOST: "postgres"
-            DB_PORT: 5432
+            DB_PORT: "5432"
             DB_NAME: orthanctoolsjs
         networks:
           - internal
