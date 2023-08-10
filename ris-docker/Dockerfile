@@ -12,10 +12,11 @@ WORKDIR /ris/MTA-MedRIS
 
 RUN pip install wheel
 RUN pip install -r requirements.txt
+RUN python init_feature_db.py
 
 # RUN python init_db.py
 
 EXPOSE 5000
 
-CMD python init_db.py && python init_feature_db.py & python app.py
+CMD python init_db.py && python app.py
 
