@@ -113,7 +113,9 @@ services:
         container_name: ris
         restart: unless-stopped
         ports: ["5000:5000"]
-        volumes: ["./data/ris:/RIS/static/:Z"]
+        volumes: 
+          - "./data/ris:/RIS/static/:Z"
+          - "./data/cbir_feature:/RIS/cbir_feature/:Z"
         networks:
           - internal
           - web
